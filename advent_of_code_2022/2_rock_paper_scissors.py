@@ -2,7 +2,7 @@
 input = open("2_rps_input.txt", "r")
 
 #part 1
-# #create lookup dict and count
+# #create count and lookup dict
 # total_score = 0
 # lookup = {"A":1, "B":2,"C":3, "X":1, "Y":2, "Z":3}
 
@@ -29,7 +29,7 @@ input = open("2_rps_input.txt", "r")
 # print(total_score)
 
 #part 2
-#create lookup dicts and count
+#create count and lookup dicts
 total_score = 0
 lookup = {"A":1, "B":2,"C":3}
 win_lookup = {"A":"B", "B":"C", "C":"A"}
