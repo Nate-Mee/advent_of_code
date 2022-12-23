@@ -9,13 +9,28 @@ for line in input:
     elf1.append(nums[0].split("-"))
     elf2.append(nums[1].split("-"))
 
+#part 1
 #Count pairs when one contains the other
 count = 0
-for index in range(0, len(elf1)):
-    if int(elf1[index][0]) <= int(elf2[index][0]) and int(elf1[index][1]) >= int(elf2[index][1]):
-        count+= 1
-    elif int(elf1[index][0]) >= int(elf2[index][0]) and int(elf1[index][1]) <= int(elf2[index][1]):
-        count+= 1
+elf1b = []
+elf2b = []
+for index, value in enumerate(elf1):
+    if (int(value[0]) <= int(elf2[index][0]) and int(value[1]) >= int(elf2[index][1])) or (
+        int(value[0]) >= int(elf2[index][0]) and int(value[1]) <= int(elf2[index][1])):
+        count += 1
+    else:
+        elf1b.append(value)
+        elf2b.append(elf2[index])
 
 #Print answer
-print(count)
+print(f"Number of sections where one range contains the other: {count}")
+
+#part 2
+#Count pairs when they overlap
+for index, value in enumerate(elf1b):
+    sections =  list(range(int(value[0]), int(value[1])+1))
+    if int(elf2b[index][0]) in sections or int(elf2b[index][1]) in sections:
+        count += 1
+
+#Print answer
+print(f"Number of sections where one range overlaps the other: {count}")
